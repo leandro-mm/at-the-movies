@@ -3,7 +3,6 @@ using AtTheMovies.Commands.Movies;
 using AtTheMovies.Validators.Movies;
 using FluentAssertions;
 using FluentValidation;
-using FluentValidation.TestHelper;
 using MediatR;
 using Moq;
 

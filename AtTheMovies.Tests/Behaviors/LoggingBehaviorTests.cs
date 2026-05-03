@@ -1,6 +1,5 @@
 using AtTheMovies.Behaviors;
 using AtTheMovies.Commands.Movies;
-using Castle.Core.Logging;
 using FluentAssertions;
 using MediatR;
 using Microsoft.Extensions.Logging;
