@@ -27,6 +27,7 @@ public class UpdateMovieCommandHandler
 
         movie.Name = request.Name;
         movie.Description = request.Description;
+        movie.Genre = request.Genre;
         movie.LastUpdate = DateTime.UtcNow;
 
         //_dbContext.Movies.Update(movie);
