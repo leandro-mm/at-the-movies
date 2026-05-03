@@ -16,7 +16,7 @@ public class CreateMovieCommandHandlerTests : IClassFixture<DbContextFixture>
         "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +
         "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"; // 505 A's
 
-    public CreateMovieCommandHandlerTests(DbContextFixture fixture )
+    public CreateMovieCommandHandlerTests(DbContextFixture fixture)
     {
         _fixture = fixture;
     }
@@ -53,7 +53,7 @@ public class CreateMovieCommandHandlerTests : IClassFixture<DbContextFixture>
     }
 
     [Fact]
-    public async Task CreateMovieCommandValidator_InvalidCommand_ShouldHaveValidationErrors()
+    public void CreateMovieCommandValidator_InvalidCommand_ShouldHaveValidationErrors()
     {
         // Arrange        
         var validator = new CreateMovieCommandValidator();
@@ -70,17 +70,17 @@ public class CreateMovieCommandHandlerTests : IClassFixture<DbContextFixture>
         // Assert
         Assert.False(result.IsValid);
         Assert.Contains(result.Errors, e =>
-         e.PropertyName == "Name" && e.ErrorMessage.Contains("required"));
+         e.PropertyName == nameof(CreateMovieCommand.Name) && e.ErrorMessage.Contains("required"));
     }
 
     [Theory]
-    [InlineData("", "Action", "Description", "Name")] // Empty name
-    [InlineData("A", "Action", "Description", "Name")] // Name too short
-    [InlineData(FiveHundredFiveAs, "Action", "Description", "Name")] // Name too long
-    [InlineData("Valid Name", "", "Description", "Genre")] // Empty genre
-    [InlineData("Valid Name", "A", "Description", "Genre")] // Genre too short
-    [InlineData("Valid Name", FiveHundredFiveAs, "Description", "Genre")] // Genre too long
-    [InlineData("Valid Name", "Action", FiveHundredFiveAs, "Description")] // Description too long
+    [InlineData("", "Action", "Description", nameof(CreateMovieCommand.Name))] // Empty name
+    [InlineData("A", "Action", "Description", nameof(CreateMovieCommand.Name))] // Name too short
+    [InlineData(FiveHundredFiveAs, "Action", "Description", nameof(CreateMovieCommand.Name))] // Name too long
+    [InlineData("Valid Name", "", "Description", nameof(CreateMovieCommand.Genre))] // Empty genre
+    [InlineData("Valid Name", "A", "Description", nameof(CreateMovieCommand.Genre))] // Genre too short
+    [InlineData("Valid Name", FiveHundredFiveAs, "Description", nameof(CreateMovieCommand.Genre))] // Genre too long
+    [InlineData("Valid Name", "Action", FiveHundredFiveAs, nameof(CreateMovieCommand.Description))] // Description too long
     public void CreateMovieCommandValidator_InvalidCommand_ShouldHaveValidationErrorForProperty(
         string name,
         string genre,
