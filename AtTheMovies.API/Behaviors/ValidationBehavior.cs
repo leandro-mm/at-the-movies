@@ -1,4 +1,5 @@
 using FluentValidation;
+using FluentValidation.Results;
 using MediatR;
 
 namespace AtTheMovies.Behaviors;
@@ -19,14 +20,19 @@ public class ValidationBehavior<TRequest, TResponse>
         , RequestHandlerDelegate<TResponse> next
         , CancellationToken cancellationToken)
     {
-       if (_validators.Any())
+        if (_validators.Any())
         {
             var context = new ValidationContext<TRequest>(request);
-            var validationResults = _validators
-                .Select(v => v.Validate(context))
-                .SelectMany(result => result.Errors)
-                .Where(f => f != null)
-                .ToList();
+            var validationResults = new List<ValidationFailure>();
+
+            foreach (var validator in _validators)
+            {
+                var result = await validator.ValidateAsync(context, cancellationToken);
+                if (result != null && result.Errors != null)
+                {
+                    validationResults.AddRange(result.Errors);
+                }
+            }           
 
             if (validationResults.Count != 0)
             {
