@@ -99,4 +99,30 @@ public class MovieEndpointsIntegrationTests : IClassFixture<CustomWebApplication
         //assert
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);        
     }
+
+    [Fact]
+    public async Task GetMovies_ReturnsOkResult()
+    {
+        //Arrange
+        HttpClient? httpClient = _factory.CreateClient();        
+
+        //Act
+        var response = await httpClient.GetAsync("/movies?Page=1&PageSize=1");
+
+        // Read the error content for debugging
+        var errorContent = await response.Content.ReadAsStringAsync();
+        Debug.WriteLine($"Status Code: {response.StatusCode}");
+        Debug.WriteLine($"Error Content: {errorContent}");
+
+        // For 500 errors, try to get more details
+        if (response.StatusCode == HttpStatusCode.InternalServerError)
+        {
+            // If using app.UseDeveloperExceptionPage() in development, you might get HTML
+            // Try to see if there's an exception message
+            Debug.WriteLine($"Response Headers: {string.Join(", ", response.Headers)}");
+        }
+
+        //assert
+        response.StatusCode.Should().Be(HttpStatusCode.OK);        
+    }
 }
