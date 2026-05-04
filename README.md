@@ -41,7 +41,7 @@ we'd choose to implment CQRS with MediatR. The backend and test structure will l
 ### Other Technologies
 - SqLite, EF core, LINQ
 - Fluent Validation
-- Xunit
+- xUnit
 
 ## Future Improvements
 - Implementing an UI Client
