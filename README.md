@@ -38,8 +38,10 @@ we'd choose to implment CQRS with MediatR. The backend and test structure will l
 |---------|---------|
 |![Presenter Image](AtTheMovies.API/Assets/estrutura_cqrs.png)|![Presenter Image](AtTheMovies.API/Assets/estrutura_testes.png)|
 
-### Database
+### Other Technologies
 - SqLite, EF core, LINQ
+- Fluent Validation
+- xUnit
 
 ## Future Improvements
 - Implementing an UI Client
