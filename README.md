@@ -1,5 +1,5 @@
 # At the movies 
-## A web project to provide access to data regarding movies
+## A web project to provide data access regarding movies
 
 ## The Context
 In modern software architecture, enabling efficient, scalable, and technology-agnostic communication between different 
