@@ -3,14 +3,21 @@
 
 ## The Context
 In modern software architecture, enabling efficient, scalable, and technology-agnostic communication between different 
-parts of a system is critical. This project is built as a Web API considering a future UI integration, like Angular, and for the following key reasons:
+parts of a system is critical. This project is built as a Web API considering a future UI integration, like Angular, and for the following key reasons
+
+### 🌐 **pt-br**:
+```markdown
+- Desafio: Necessidade de um back-end modular que pudesse lidar com lógica de negócios complexa sem se tornar um bloco monolítico.
+- Ação: IMplementar uma Web API utilizando os padrões CQRS e MediatR, codificando handlers de command/queries com pipeline de validação. Com isso, a separação de responsabilidades de leitura e escrita é viável.
+- Resultado: API altamente desacoplada com mais de 90% de cobertura de testes unitários (xUnit) e uma clara separação de responsabilidades, tornando futuras adições de funcionalidades significativamente mais rápidas.
+```
 
 | Concept | Description |
 |---------|------------|
 |Frontend–Backend Separation|Frontend teams can iterate independently without touching server-side code|
 |Protocol Standardization|Using HTTP/REST with JSON ensures any frontend client can consume the API regardless of platform or language|
 |Scalabilit|The API layer can be scaled independently from the frontend, handling increased traffic without redeploying UI apps|
-|Language Agnostic| Services written in different languages can communicate seamlessly via HTTP APIs|
+|Language Agnostic| Services written in different languages can communicate seamlessly via HTTP APIs
 
 ## Technologies
 ### Backend Technology: dotnet 
