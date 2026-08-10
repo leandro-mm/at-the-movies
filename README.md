@@ -7,9 +7,10 @@ parts of a system is critical. This project is built as a Web API considering a 
 
 ### 🌐 **pt-br**:
 ```markdown
-- Desafio: Necessidade de um back-end modular que pudesse lidar com lógica de negócios complexa sem se tornar um bloco monolítico.
-- Ação: IMplementar uma Web API utilizando os padrões CQRS e MediatR, codificando handlers de command/queries com pipeline de validação. Com isso, a separação de responsabilidades de leitura e escrita é viável.
-- Resultado: API altamente desacoplada com mais de 90% de cobertura de testes unitários (xUnit) e uma clara separação de responsabilidades, tornando futuras adições de funcionalidades significativamente mais rápidas.
+- Desafio: Implantação tradicional significa que qualquer bug impacta instantaneamente 100% dos usuários, e rollbacks exigem reimplantação completa do sistema. 
+- Ação: Sistema de feature flags usando Unleash. 
+- Resultado: tempo de rollback reduzido de minutos para segundos, aumento na frequência de implantações
+
 ```
 
 | Concept | Description |
