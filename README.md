@@ -8,7 +8,7 @@ parts of a system is critical. This project is built as a Web API considering a 
 ### 🌐 **pt-br**:
 ```markdown
 - Desafio: Necessidade de um back-end modular que pudesse lidar com lógica de negócios complexa sem se tornar um bloco monolítico.
-- Ação: Implementação de uma Web API utilizando os padrões CQRS e MediatR, codifiquei handlers de command/queries com pipeline de validação separando responsabilidades de leitura e escrita.
+- Ação: Implementação de uma Web API utilizando o padrão MediatR, codifiquei handlers de command/queries com pipeline de validação separando responsabilidades de leitura e escrita.
 - Resultado: API altamente desacoplada com mais de 90% de cobertura de testes unitários (xUnit) e uma clara separação de responsabilidades, tornando futuras adições de funcionalidades significativamente mais rápidas.
 ```
 
@@ -37,9 +37,9 @@ parts of a system is critical. This project is built as a Web API considering a 
 - Giving Minimal API's simplicity, clarity and functional programming style over object-oriented patterns,
 we'd choose minimal APIs over controllers to implement the backend. 
 
-### Backend Organization: CQRS/MediatR
+### Backend Organization: MediatR
 - Since we do not want our endpoints full of business logic and a high reusable archtecture,
-we'd choose to implment CQRS with MediatR. The backend and test structure will looks like this
+we'd choose to implment MediatR. The backend and test structure will looks like this
 
 | backend structure |test structure |
 |---------|---------|
